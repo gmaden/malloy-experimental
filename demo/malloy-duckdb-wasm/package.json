@@ -7,7 +7,11 @@
     "start": "NODE_ENV=development npm run build 8888",
     "watch": "NODE_ENV=development npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "ts-node scripts/build"
+    "build": "ts-node scripts/build",
+    "cli-build": "npm run build && npx tsc -p ./tsconfig.cli.json",
+    "cli-package-linux-x64": "npm run cli-build && npx pkg -c package.json --compress GZip -t node16-linux-x64 -o pkg/malloy-cli-linux-x64 dist/cli/malloy-cli.js",
+    "cli-package-mac-arm64": "npm run cli-build && npx pkg -c package.json --compress GZip -t node16-macos-arm64 -o pkg/malloy-cli-macos-arm64 dist/cli/malloy-cli.js",
+    "cli-package-mac-x6464": "npm run cli-build && npx pkg -c package.json --compress GZip -t node16-macos-x64 -o pkg/malloy-cli-macos-x64 dist/cli/malloy-cli.js"
   },
   "author": "Malloy",
   "license": "GPL-2.0",
@@ -16,12 +20,23 @@
     "@malloydata/db-duckdb": "*",
     "@malloydata/malloy": "*",
     "apache-arrow": "^8.0.0",
+    "express": "^4.18.1",
     "monaco-editor": "^0.34.0",
     "react": "^17.0.2",
     "styled-component": "^2.8.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
-    "esbuild": "0.14.13"
+    "commander": "^9.4.0",
+    "esbuild": "0.14.13",
+    "pkg": "^5.8.0"
+  },
+  "pkg": {
+    "scripts": [
+      "dist/cli/malloy-cli.js"
+    ],
+    "assets": [
+      "docs/**/*"
+    ]
   }
 }

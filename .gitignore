@@ -19,6 +19,7 @@ packages/malloy/src/lang/grammar/.antlr
 demo/**/build
 demo/**/dist
 demo/**/node_modules
+demo/**/pkg
 demo/**/tsconfig.tsbuildinfo
 demo/**/package-lock.json
 demo/**/.eslintcache

@@ -1,0 +1,21 @@
+{
+  "name": "@malloydata/server",
+  "version": "0.0.1",
+  "license": "GPL-2.0",
+  "scripts": {
+    "gen-protos": "sh ./scripts/gen-protos.sh",
+    "build": "npm run gen-protos && tsc --build && npm run copy-assets",
+    "copy-assets": "cp -r ./src/proto/ ./dist/proto",
+    "start": "npm run build && node ./dist/server/server.js"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.12",
+    "@malloydata/malloy": "^0.0.1"
+  },
+  "devDependencies": {
+    "commander": "^9.4.0",
+    "grpc_tools_node_protoc_ts": "^5.3.2",
+    "grpc-tools": "^1.11.2",
+    "pkg": "^5.8.0"
+  }
+}

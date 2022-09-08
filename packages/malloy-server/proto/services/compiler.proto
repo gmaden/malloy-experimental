@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package services;
+
+service Compiler {
+    rpc Compile (CompileRequest) returns (CompileResponse) {}
+}
+
+message CompileRequest {
+  optional string document = 1;
+}
+
+message CompileResponse {
+  optional string message = 1;
+}

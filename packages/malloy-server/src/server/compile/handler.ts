@@ -2,11 +2,8 @@ import * as grpc from "@grpc/grpc-js";
 import {
   CompilerService,
   ICompilerServer,
-} from "../../proto/services/compiler_grpc_pb";
-import {
-  CompileRequest,
-  CompileResponse,
-} from "../../proto/services/compiler_pb";
+} from "../proto/services/compiler_grpc_pb";
+import { CompileRequest, CompileResponse } from "../proto/services/compiler_pb";
 import {
   Connection,
   MalloyQueryData,

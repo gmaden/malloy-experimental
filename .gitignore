@@ -16,7 +16,7 @@ packages/malloy/src/lang/lib
 packages/**/package-lock.json
 packages/**/.eslintcache
 packages/malloy/src/lang/grammar/.antlr
-packages/malloy-server/src/proto
+packages/malloy-server/src/**/proto
 demo/**/build
 demo/**/dist
 demo/**/node_modules

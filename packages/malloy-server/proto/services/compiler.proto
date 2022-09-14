@@ -7,9 +7,15 @@ service Compiler {
 }
 
 message CompileRequest {
-  optional string document = 1;
+  CompileDocument document = 1;
+  repeated CompileDocument reference = 2;
 }
 
 message CompileResponse {
   optional string message = 1;
+}
+
+message CompileDocument {
+  string url = 1;
+  string content = 2;
 }
